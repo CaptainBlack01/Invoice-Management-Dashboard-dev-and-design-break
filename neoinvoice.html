@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo-invoice</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="bak.css" />
+  </head>
+  <body>
+    <!-- neoinvoice header -->
+    <header>
+      <div class="logo">
+        <h1>
+          <i class="fa fa-file-invoice"></i
+          ><span style="color: var(--accent)">Neo</span>- invoice
+        </h1>
+      </div>
+      <!-- search -->
+      <div class="search">
+        <input type="search" placeholder="search..." />
+      </div>
+      <div class="notice-avatar"><i class="fa fa-bell"></i></div>
+      <div class="avatar-container"><i class="fa fa-user"></i></div>
+    </header>
+    <!-- main -->
+    <main>
+      <!-- sidebar -->
+      <section class="sidebar">
+        <!-- top of the sidebar -->
+
+        <div class="top-of-the-sidebar">
+          <ul class="top-list">
+            <li><i class="fas fa-tachometer-alt"></i>Dashboard</li>
+            <li class="active"><i class="fas fa-file-invoice"></i>Invoices</li>
+            <li><i class="fas fa-users"></i>Clients</li>
+            <li><i class="fas fa-cog"></i>Settings</li>
+          </ul>
+        </div>
+
+        <!-- middle of the sidebar -->
+        <div class="mid-side-bar">
+          <h3>Filters</h3>
+          <ul class="mid-list">
+            <li><i class="fas fa-check-circle"></i>Paid</li>
+            <li><i class="fas fa-clock"></i>Pending</li>
+            <li><i class="fas fa-exclamation-circle"></i>Overdue</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="invoices">
+        <h1>Invoices</h1>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="search...."
+        />
+        <!-- main invoice -->
+        <div class="main-invoice">
+          <div class="main-invoice-panel">
+            <h4>Invoice ID</h4>
+            <h4>Client</h4>
+            <h4>Amount</h4>
+            <h4>Status</h4>
+          </div>
+
+          <!-- invoie-card -->
+          <div class="invoice-card">
+            <h4>INV-0012</h4>
+            <h4>Acme Corp</h4>
+            <h4>$2500</h4>
+            <h3 class="paid">Paid</h3>
+          </div>
+          <div class="invoice-card">
+            <h4>INV-0011</h4>
+            <h4>Dev and design</h4>
+            <h4>$8300</h4>
+            <h3 class="pending">Pending</h3>
+          </div>
+          <div class="invoice-card">
+            <h4>INV-0010</h4>
+            <h4>Google inc</h4>
+            <h4>$1250</h4>
+            <h3 class="overdue">Overdue</h3>
+          </div>
+        </div>
+      </section>
+      <!-- invoice details -->
+      <section class="invoice-details">
+        <div class="top-detail">
+          <h3>Invoice Details</h3>
+          <h4>New invoice</h4>
+        </div>
+        <div class="hr"><hr /></div>
+        <!-- main details -->
+        <div class="main-details">
+          <h2>Acme Corp</h2>
+          <div class="main-details-text">
+            <div class="text-date">
+              <p>Issue Date</p>
+              <p>2025-03-01</p>
+            </div>
+
+            <div class="text-date">
+              <p>Due Date</p>
+              <p>2025-03-15</p>
+            </div>
+
+            <div class="text-paid">
+              <p>Paid</p>
+            </div>
+          </div>
+        </div>
+        <table>
+          <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price</th>
+          </tr>
+
+          <tr>
+            <td>Development</td>
+            <td>2</td>
+            <td>$1500</td>
+            <td>$3000</td>
+          </tr>
+          <tr>
+            <td>Design</td>
+            <td>1</td>
+            <td>$1500</td>
+            <td>$1500</td>
+          </tr>
+          <tr class="tax">
+            <td>Federal Tax 5%</td>
+            <td></td>
+            <td></td>
+            <td>$250</td>
+          </tr>
+          <div class="hr"><hr /></div>
+          <tr class="total">
+            <td>Total</td>
+            <td>$2500</td>
+          </tr>
+        </table>
+        <div class="hr"><hr /></div>
+        <!-- down details -->
+        <div class="down-details">
+          <h3>Payment Details</h3>
+          <div class="payment-info">
+            <p>Payment Method: Credit Card</p>
+            <p>Transaction ID: 123456789</p>
+            <p>Payment Status: Completed</p>
+          </div>
+          <div class="button-details">
+            <button class="btn-paid">Mark as Paid</button>
+            <button class="btn-download">Download PDF</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

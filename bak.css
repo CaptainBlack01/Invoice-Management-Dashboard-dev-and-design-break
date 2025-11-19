@@ -1,0 +1,292 @@
+/* neoinvoice.css */
+
+/* Root variables */
+:root {
+  --primary-bg: #0a0f1c;
+  --secondary-bg: #121829;
+  --accent: #00bfff;
+  --accent-glow: rgba(0, 191, 255, 0.5);
+  --text-light: #e6f1ff;
+  --text-dim: #94a3b8;
+  --success: #00ffb7;
+  --warning: #ffd700;
+  --error: #ff4c4c;
+  --card-shadow: 0 0 15px rgba(0, 191, 255, 0.1);
+  --border-glow: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: var(--secondary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: var(--border-glow);
+  box-shadow: var(--card-shadow);
+}
+
+header .logo h1 {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+}
+
+header .logo i {
+  color: var(--accent);
+}
+
+header .search input {
+  background: var(--primary-bg);
+  border: var(--border-glow);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  color: var(--text-light);
+  outline: none;
+  width: 250px;
+}
+
+header .notice-avatar,
+header .avatar-container {
+  background: var(--primary-bg);
+  border: var(--border-glow);
+  padding: 0.6rem;
+  border-radius: 8px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Main layout */
+main {
+  display: grid;
+  grid-template-columns: 240px 1fr 420px;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--secondary-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 0.8rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+  color: var(--text-dim);
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background: rgba(0, 191, 255, 0.1);
+  color: var(--accent);
+}
+
+.mid-side-bar h3 {
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+/* Invoices Section */
+.invoices {
+  background: var(--secondary-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.invoices h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.invoices input[type="search"] {
+  width: 100%;
+  background: var(--primary-bg);
+  border: var(--border-glow);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  outline: none;
+}
+
+.main-invoice-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.invoice-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--primary-bg);
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 10px;
+  border: var(--border-glow);
+  transition: 0.2s;
+}
+
+.invoice-card:hover {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.invoice-card h3 {
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.invoice-card h3 .paid {
+  background: var(--success);
+}
+
+.invoice-card h3 .pending {
+  background: var(--accent);
+}
+
+.invoice-card h3 .overduenm {
+  background: var(--error);
+}
+
+/* Invoice Details */
+.invoice-details {
+  background: var(--secondary-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.invoice-details .top-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invoice-details .top-detail h4 {
+  background: var(--primary-bg);
+  border: var(--border-glow);
+  color: var(--accent);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.invoice-details .main-details {
+  margin-top: 1rem;
+}
+
+.main-details-text {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.text-paid p {
+  background: rgba(0, 255, 183, 0.15);
+  color: var(--success);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--success);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.6rem;
+  color: var(--text-light);
+}
+
+tr.tax td {
+  color: var(--text-dim);
+}
+
+tr.total td {
+  font-weight: bold;
+  color: var(--accent);
+  border-top: var(--border-glow);
+  padding-top: 1rem;
+}
+
+.down-details {
+  margin-top: 1.5rem;
+}
+
+.payment-info p {
+  color: var(--text-dim);
+  margin: 0.3rem 0;
+}
+
+.button-details {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-paid {
+  background: var(--success);
+  color: var(--primary-bg);
+}
+
+.btn-download {
+  background: transparent;
+  border: var(--border-glow);
+  color: var(--accent);
+  transition: 0.2s;
+}
+
+.btn-download:hover {
+  background: var(--accent);
+  color: var(--primary-bg);
+}
