@@ -1,45 +1,52 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neo-invoice</title>
+    <link rel="stylesheet" href="design-system.css" />
+    <link rel="stylesheet" href="invoice.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="bak.css" />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- neoinvoice header -->
     <header>
       <div class="logo">
-        <h1>
-          <i class="fa fa-file-invoice"></i
-          ><span style="color: var(--accent)">Neo</span>- invoice
-        </h1>
+        <h1><i class="fa fa-file-invoice"></i><span>Neo</span>-invoice</h1>
       </div>
-      <!-- search -->
       <div class="search">
-        <input type="search" placeholder="search..." />
+        <label for="header-search" class="visually-hidden">Search invoices</label>
+        <input
+          type="search"
+          id="header-search"
+          placeholder="Search invoices..."
+          aria-label="Search invoices"
+        />
       </div>
-      <div class="notice-avatar"><i class="fa fa-bell"></i></div>
-      <div class="avatar-container"><i class="fa fa-user"></i></div>
+      <div class="notice-avatar" aria-label="Notifications">
+        <i class="fa fa-bell"></i>
+      </div>
+      <div class="avatar-container" aria-label="User profile">
+        <i class="fa fa-user"></i>
+      </div>
     </header>
     <!-- main -->
-    <main>
+    <main id="main-content">
       <!-- sidebar -->
-      <section class="sidebar">
+      <section class="sidebar" aria-label="Navigation">
         <!-- top of the sidebar -->
-
         <div class="top-of-the-sidebar">
           <ul class="top-list">
-            <li><i class="fas fa-tachometer-alt"></i>Dashboard</li>
-            <li class="active"><i class="fas fa-file-invoice"></i>Invoices</li>
-            <li><i class="fas fa-users"></i>Clients</li>
-            <li><i class="fas fa-cog"></i>Settings</li>
+            <li><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></li>
+            <li class="active"><i class="fas fa-file-invoice"></i><span>Invoices</span></li>
+            <li><i class="fas fa-users"></i><span>Clients</span></li>
+            <li><i class="fas fa-cog"></i><span>Settings</span></li>
           </ul>
         </div>
 
@@ -47,20 +54,27 @@
         <div class="mid-side-bar">
           <h3>Filters</h3>
           <ul class="mid-list">
-            <li><i class="fas fa-check-circle"></i>Paid</li>
-            <li><i class="fas fa-clock"></i>Pending</li>
-            <li><i class="fas fa-exclamation-circle"></i>Overdue</li>
+            <li role="button" tabindex="0" data-filter="paid">
+              <i class="fas fa-check-circle"></i><span>Paid</span>
+            </li>
+            <li role="button" tabindex="0" data-filter="pending">
+              <i class="fas fa-clock"></i><span>Pending</span>
+            </li>
+            <li role="button" tabindex="0" data-filter="overdue">
+              <i class="fas fa-exclamation-circle"></i><span>Overdue</span>
+            </li>
           </ul>
         </div>
       </section>
 
-      <section class="invoices">
+      <section class="invoices" aria-label="Invoices list">
         <h1>Invoices</h1>
+        <label for="invoice-search" class="visually-hidden">Search invoices</label>
         <input
           type="search"
-          name="search"
-          id="search"
-          placeholder="search...."
+          id="invoice-search"
+          placeholder="Search invoices..."
+          aria-label="Search invoices"
         />
         <!-- main invoice -->
         <div class="main-invoice">
@@ -72,19 +86,43 @@
           </div>
 
           <!-- invoie-card -->
-          <div class="invoice-card">
+          <div
+            class="invoice-card"
+            role="button"
+            tabindex="0"
+            data-id="INV-0012"
+            data-client="Acme Corp"
+            data-amount="$2500"
+            data-status="paid"
+          >
             <h4>INV-0012</h4>
             <h4>Acme Corp</h4>
             <h4>$2500</h4>
             <h3 class="paid">Paid</h3>
           </div>
-          <div class="invoice-card">
+          <div
+            class="invoice-card"
+            role="button"
+            tabindex="0"
+            data-id="INV-0011"
+            data-client="Dev and design"
+            data-amount="$8300"
+            data-status="pending"
+          >
             <h4>INV-0011</h4>
             <h4>Dev and design</h4>
             <h4>$8300</h4>
             <h3 class="pending">Pending</h3>
           </div>
-          <div class="invoice-card">
+          <div
+            class="invoice-card"
+            role="button"
+            tabindex="0"
+            data-id="INV-0010"
+            data-client="Google inc"
+            data-amount="$1250"
+            data-status="overdue"
+          >
             <h4>INV-0010</h4>
             <h4>Google inc</h4>
             <h4>$1250</h4>
@@ -92,79 +130,85 @@
           </div>
         </div>
       </section>
+
       <!-- invoice details -->
-      <section class="invoice-details">
+      <section class="invoice-details" aria-label="Invoice details">
         <div class="top-detail">
           <h3>Invoice Details</h3>
-          <h4>New invoice</h4>
+          <button type="button" class="new-invoice" id="newInvoice">New invoice</button>
         </div>
-        <div class="hr"><hr /></div>
+        <hr class="hr" />
         <!-- main details -->
         <div class="main-details">
-          <h2>Acme Corp</h2>
+          <h2 id="detailClient">Acme Corp</h2>
           <div class="main-details-text">
             <div class="text-date">
               <p>Issue Date</p>
-              <p>2025-03-01</p>
+              <p id="detailIssueDate">2025-03-01</p>
             </div>
 
             <div class="text-date">
               <p>Due Date</p>
-              <p>2025-03-15</p>
+              <p id="detailDueDate">2025-03-15</p>
             </div>
 
             <div class="text-paid">
-              <p>Paid</p>
+              <p id="detailStatus">Paid</p>
             </div>
           </div>
         </div>
-        <table>
-          <tr>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-            <th>Price</th>
-          </tr>
-
-          <tr>
-            <td>Development</td>
-            <td>2</td>
-            <td>$1500</td>
-            <td>$3000</td>
-          </tr>
-          <tr>
-            <td>Design</td>
-            <td>1</td>
-            <td>$1500</td>
-            <td>$1500</td>
-          </tr>
-          <tr class="tax">
-            <td>Federal Tax 5%</td>
-            <td></td>
-            <td></td>
-            <td>$250</td>
-          </tr>
-          <div class="hr"><hr /></div>
-          <tr class="total">
-            <td>Total</td>
-            <td>$2500</td>
-          </tr>
+        <table class="invoice-items" aria-label="Invoice line items">
+          <thead>
+            <tr>
+              <th scope="col">Description</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Development</td>
+              <td>2</td>
+              <td>$1500</td>
+              <td>$3000</td>
+            </tr>
+            <tr>
+              <td>Design</td>
+              <td>1</td>
+              <td>$1500</td>
+              <td>$1500</td>
+            </tr>
+            <tr class="tax">
+              <td>Federal Tax 5%</td>
+              <td></td>
+              <td></td>
+              <td>$250</td>
+            </tr>
+            <tr class="total">
+              <td>Total</td>
+              <td colspan="2"></td>
+              <td>$2500</td>
+            </tr>
+          </tbody>
         </table>
-        <div class="hr"><hr /></div>
+        <hr class="hr" />
         <!-- down details -->
         <div class="down-details">
           <h3>Payment Details</h3>
           <div class="payment-info">
             <p>Payment Method: Credit Card</p>
             <p>Transaction ID: 123456789</p>
-            <p>Payment Status: Completed</p>
+            <p id="detailPaymentStatus">Payment Status: Completed</p>
           </div>
           <div class="button-details">
-            <button class="btn-paid">Mark as Paid</button>
-            <button class="btn-download">Download PDF</button>
+            <button type="button" class="btn-paid" id="markPaid">Mark as Paid</button>
+            <button type="button" class="btn-download" id="downloadPdf">Download PDF</button>
           </div>
         </div>
       </section>
     </main>
+
+    <script src="invoice.js"></script>
   </body>
 </html>
